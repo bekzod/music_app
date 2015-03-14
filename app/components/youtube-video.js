@@ -39,6 +39,11 @@ export default Ember.Component.extend({
     }
   }.observes('isPlaying'),
 
+  onVideoIdChange: function(){
+    var videoId = this.get('videoId');
+    this.player.loadVideoById(videoId);
+  }.observes('videoId'),
+
   initPlayer: function(){
     var videoId = this.get('videoId');
     var isPlaying = this.get('isPlaying');

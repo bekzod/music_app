@@ -1,3 +1,9 @@
-{{youtube-player}}
+<ul>
+  {{#each track in model}}
+    <li {{action 'playTrack' track}}>{{track.name}}</li>
+  {{/each}}
+</ul>
+
+{{youtube-player videoId=videoId}}
 
 {{outlet}}
