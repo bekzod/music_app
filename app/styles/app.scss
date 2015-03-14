@@ -1,3 +1,9 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #24221F;
+}
+
+
 .youtube-video {
   position: relative;
   max-width: 1400px;
@@ -16,6 +22,7 @@
   }
 }
 
+
 .youtube-player {
   position: relative;
   .youtube-video {
@@ -29,8 +36,22 @@
     right: 0;
     bottom: 0;
     .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       height: 100%;
-      background: red;
+      background: #24221F;
+      opacity: .6;
+    }
+    .formated-time {
+      position: absolute;
+      right: 50px;
+      bottom: 30px;
+      font-size: 50px;
+      font-weight: 100;
+      color: white;
     }
   }
 }
