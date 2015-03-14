@@ -1,0 +1,11 @@
+{{videoCurrentTime}}
+{{videoDuration}}
+
+<button {{action 'togglePlay'}}>{{isVideoPlaying}}</button>
+
+{{youtube-video videoId=videoId
+  isPlaying=isVideoPlaying
+  volume=videoVolume
+  seekTo=videoSeekTo
+  stateChange='videoStateChange'
+}}

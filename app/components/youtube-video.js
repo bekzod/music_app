@@ -3,7 +3,7 @@ import layout from '../templates/components/youtube-video';
 
 /*globals YT */
 
-export const PlayerState = {
+export const YTPlayerState = {
   UNSTARTED: -1,
   ENDED: 0,
   PLAYING: 1,
