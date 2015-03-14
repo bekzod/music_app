@@ -3,7 +3,8 @@
 module.exports = function(environment) {
   var ENV = {
     apiKeys: {
-      GOOGLE: 'AIzaSyDnLyuLSdGdpOszzjAYS67sUxCqs-pUn-o'
+      GOOGLE: 'AIzaSyDnLyuLSdGdpOszzjAYS67sUxCqs-pUn-o',
+      LAST_FM: 'c1962f54a52bdede1e106ef010ba183b'
     },
     modulePrefix: 'music-app',
     environment: environment,
