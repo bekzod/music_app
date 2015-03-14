@@ -1,15 +1,17 @@
 import Ember from 'ember';
 import layout from '../templates/components/youtube-video';
-/*
-  youtube player states
-  YT.PlayerState.ENDED
-  YT.PlayerState.PLAYING
-  YT.PlayerState.PAUSED
-  YT.PlayerState.BUFFERING
-  YT.PlayerState.CUED
-*/
 
 /*globals YT */
+
+export const PlayerState = {
+  UNSTARTED: -1,
+  ENDED: 0,
+  PLAYING: 1,
+  PAUSED: 2,
+  BUFFERING: 3,
+  CUED: 5,
+};
+
 export default Ember.Component.extend({
   layout: layout,
   classNames:[ 'youtube-video' ],
@@ -57,16 +59,29 @@ export default Ember.Component.extend({
         fs:0
       },
       events: {
-        'onReady': this.onPlayerReady,
-        'onStateChange': this.sendAction.bind(this, 'stateChange'),
+        'onReady': this.onPlayerReady.bind(this),
+        'onStateChange': this.onStateChange.bind(this),
         'onError': this.sendAction.bind(this, 'error')
       }
     });
   }.on('didInsertElement'),
 
-  onPlayerReady: function() {
+  onStateChange: function(e) {
+    var player = e.target;
+    this.sendAction('stateChange', {
+      state: e.data,
+      duration: player.getDuration(),
+      currentTime: player.getCurrentTime()
+    });
+  },
+
+  onPlayerReady: function(e) {
     this.volumeChange();
-    this.sendAction('ready');
+    var player = e.target;
+    this.sendAction('ready', {
+      duration: player.getDuration(),
+      currentTime: player.getCurrentTime()
+    });
   },
 
   loadedFraction: function(){

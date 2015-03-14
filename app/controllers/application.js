@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import {PlayerState} from '../components/youtube-video';
+//PlayerState: UNSTARTED ENDED PLAYING PAUSED BUFFERING CUED
 
 export default Ember.Controller.extend({
   actions: {
@@ -6,10 +8,10 @@ export default Ember.Controller.extend({
       this.toggleProperty('isVideoPlaying');
     },
     videoStateChange: function(e){
-      var player = e.target;
+      console.log(e.state === PlayerState.PLAYING, 'PLAYING');
     }
   },
-  isVideoPlaying: true,
+  isVideoPlaying: false,
   videoVolume: 0,
   videoSeekTo: 0,
 });
