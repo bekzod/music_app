@@ -71,7 +71,8 @@ export default Ember.Component.extend({
     this.sendAction('stateChange', {
       state: e.data,
       duration: player.getDuration(),
-      currentTime: player.getCurrentTime()
+      currentTime: player.getCurrentTime(),
+      loadedFraction: player.getVideoLoadedFraction()
     });
   },
 
@@ -80,13 +81,10 @@ export default Ember.Component.extend({
     var player = e.target;
     this.sendAction('ready', {
       duration: player.getDuration(),
-      currentTime: player.getCurrentTime()
+      currentTime: player.getCurrentTime(),
+      loadedFraction: player.getVideoLoadedFraction()
     });
   },
-
-  loadedFraction: function(){
-    return this.player.getVideoLoadedFraction();
-  }.property().volatile(),
 
   destroyPlayer: function(){
     this.player.destroy();
