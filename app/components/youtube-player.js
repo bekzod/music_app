@@ -5,13 +5,14 @@ import {YTPlayerState as pState} from '../components/youtube-video';
 
 export default Ember.Component.extend({
   layout: layout,
+  classNames: ['youtube-player'],
   actions: {
     togglePlay: function(){
       this.toggleProperty('isVideoPlaying');
     },
 
     videoStateChange: function(e){
-      this.set('videoCurrentTime', Math.round(e.currentTime));
+      this.set('videoCurrentTime', e.currentTime);
       this.set('videoDuration', e.duration);
 
       if (e.state === pState.PLAYING) {
@@ -33,9 +34,17 @@ export default Ember.Component.extend({
   videoVolume: 0,
   videoSeekTo: 0,
 
+  click: function(e){
+    var width = this.$('.control-overlay').width();
+    var duration = this.get('videoDuration');
+    var time = ( e.pageX / width ) * duration;
+    this.set('videoSeekTo', time);
+    this._super(e);
+  },
+
   startTimer: function(){
     this.stopTimer();
-    this.timer = setInterval(this.tick.bind(this), 1000);
+    this.timer = setInterval(this.tick.bind(this), 100);
   },
 
   stopTimer: function() {
@@ -43,7 +52,14 @@ export default Ember.Component.extend({
   }.on('willDestroyElement'),
 
   tick: function(){
-    this.incrementProperty('videoCurrentTime');
+    this.incrementProperty('videoCurrentTime', .1);
   },
+
+  progressWidth: function(){
+    var time = this.get('videoCurrentTime');
+    var duration = this.get('videoDuration');
+    var ratio = ( time / duration * 100 ) || 0;
+    return 'width: ' + ratio + '%;';
+  }.property('videoCurrentTime')
 
 });
