@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    apiKeys: {
+      GOOGLE: 'AIzaSyDnLyuLSdGdpOszzjAYS67sUxCqs-pUn-o'
+    },
     modulePrefix: 'music-app',
     environment: environment,
     baseURL: '/',
