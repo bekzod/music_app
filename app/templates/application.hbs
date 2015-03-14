@@ -1,3 +1,11 @@
-{{youtube-video videoId='_zLmLh2Ejeg'}}
+<button {{action 'togglePlay'}}>play</button>
+
+{{youtube-video videoId='09R8_2nJtjg'
+  play='video'
+  isPlaying=isVideoPlaying
+  volume=videoVolume
+  seekTo=videoSeekTo
+  stateChange='videoStateChange'
+}}
 
 {{outlet}}

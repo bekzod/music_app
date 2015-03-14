@@ -13,48 +13,64 @@ import layout from '../templates/components/youtube-video';
 export default Ember.Component.extend({
   layout: layout,
   classNames:[ 'youtube-video' ],
-  actions: {
-    seekTo: function(seconds){
-      this.player.seekTo(seconds);
-    },
-    play: function(){
+
+  seekTo: 100,
+  isPlaying: true,
+  volume: 0,
+
+  seekToChange: function(){
+    var seekTo = this.get('seekTo');
+    this.player.seekTo(seekTo);
+  }.observes('seekTo'),
+
+  volumeChange: function(){
+    var volume = this.get('volume');
+    this.player.setVolume(volume);
+  }.observes('volume'),
+
+  playChange: function(){
+    var isPlaying = this.get('isPlaying');
+    if (isPlaying){
       this.player.playVideo();
-    },
-    pause: function(){
+    } else {
       this.player.pauseVideo();
-    },
-    changeVolume: function(amount){
-      this.player.setVolume(amount);
     }
-  },
+  }.observes('isPlaying'),
 
   initPlayer: function(){
     var videoId = this.get('videoId');
+    var isPlaying = this.get('isPlaying');
+    var seekTo = this.get('seekTo');
+
     this.player = new YT.Player(this.$('.yt-video')[0], {
       height: '390',
       width: '640',
       videoId: videoId,
       playerVars: {
+        start: seekTo,
+        autoplay: isPlaying ? 1 : 0,
         controls: 0,
         showinfo: 0,
         enablejsapi: 1,
         disablekb: 0,
+        rel:0,
         fs:0
       },
       events: {
-        'onReady': this.sendAction.bind(this, 'ready'),
+        'onReady': this.onPlayerReady,
         'onStateChange': this.sendAction.bind(this, 'stateChange'),
         'onError': this.sendAction.bind(this, 'error')
       }
     });
   }.on('didInsertElement'),
 
+  onPlayerReady: function() {
+    this.volumeChange();
+    this.sendAction('ready');
+  },
+
   loadedFraction: function(){
     return this.player.getVideoLoadedFraction();
-  }.property().volatile(),
-
-  currentTime: function(){
-    return this.player.getCurrentTime();
   }.property().volatile(),
 
   destroyPlayer: function(){
