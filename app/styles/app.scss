@@ -30,8 +30,23 @@ body {
   margin-bottom: 100px;
 }
 
-.video-page {
-  margin: 0 0 40px 0;
+.btn-container{
+  width: 500px;
+  margin: 40px auto;
+}
+
+a.btn {
+  text-decoration: none;
+  padding: 20px;
+  background: #455877;
+  color: #FBFBFC;
+  display: inline-block;
+  text-transform: capitalize;
+  font-weight: 300;
+
+  &:hover, &.active {
+    background: $maincolor;
+  }
 }
 
 .track-list {

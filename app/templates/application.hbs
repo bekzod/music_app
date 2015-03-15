@@ -2,6 +2,14 @@
 
   {{outlet}}
 
+  <div class="btn-container">
+    {{#each country in chartCountries}}
+      {{#link-to 'application' (query-params country=country) class='btn'}}
+        {{country}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+
   <div class='track-list'>
     {{#each track in model}}
       {{#link-to 'video' track.id class='track-item'}}
