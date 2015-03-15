@@ -1,8 +1,14 @@
-<ul>
+<div class='track-list'>
   {{#each track in model}}
-    <li {{action 'playTrack' track}}>{{track.name}}</li>
+    <div class='track-item'  {{action 'playTrack' track}}>
+      {{image-loader class='track-img' src=track.image}}
+      <div class="track-detail-container">
+        <div class='track-title'> {{track.name}}</div>
+        <div class='track-sub-title'> {{track.artist}}</div>
+      </div>
+    </div>
   {{/each}}
-</ul>
+</div>
 
 {{youtube-player videoId=videoId}}
 

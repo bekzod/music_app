@@ -9,6 +9,50 @@ body {
   top: 50%;
 }
 
+
+.track-list {
+  overflow: auto;
+  margin: 10px 0 0 10px;
+
+  .track-item {
+    background: grey;
+    margin: 5px 0 0 5px;
+    float: left;
+    cursor: pointer;
+    width: 240px;
+    height: 90px;
+
+    .track-detail-container{
+      float: left;
+      overflow: auto;
+      width: 150px;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      line-height: 17px;
+      .track-title {
+        font-size: 20px;
+      }
+      .track-sub-title{
+        font-size: 16px;
+      }
+    }
+
+    .track-img {
+      width: 90px;
+      height: 90px;
+      float: left;
+      opacity: 1;
+      transition: opacity 1s ease;
+      &.hidden {
+        opacity: 0;
+      }
+    }
+
+  }
+
+}
+
+
 .youtube-video {
   position: relative;
   max-width: 1400px;
@@ -70,7 +114,7 @@ body {
       @extend %center;
       width: 104px;
       height: 128px;
-      margin-left: -42px;
+      margin-left: -30px;
       margin-top: -52px;
       background: url('../img/pause.png') no-repeat;
       opacity: .6;
@@ -80,7 +124,7 @@ body {
       @extend %center;
       width: 80px;
       height: 100px;
-      margin-left: -250px;
+      margin-left: -230px;
       margin-top: -42px;
       background: url('../img/shift-left.png') no-repeat;
       opacity: .6;
@@ -115,6 +159,8 @@ body {
       }
 
       .formated-time {
+        user-select: none;
+        cursor: default;
         position: absolute;
         right:80px;
         bottom: 5px;
