@@ -3,6 +3,11 @@ body {
   background: #24221F;
 }
 
+%center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
 
 .youtube-video {
   position: relative;
@@ -38,28 +43,86 @@ body {
     transition: opacity 600ms ease-out;
     opacity: 1;
 
+    .mute-btn {
+      &.muted {
+        background: url('../img/no-sound.png') no-repeat;
+      }
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      width: 80px;
+      height: 80px;
+      background: url('../img/sound.png') no-repeat;
+      opacity: .6;
+    }
+
+    .play-btn{
+      @extend %center;
+      width: 104px;
+      height: 128px;
+      margin-left: -52px;
+      margin-top: -64px;
+      background: url('../img/play.png') no-repeat;
+      opacity: .6;
+    }
+
+    .pause-btn{
+      @extend %center;
+      width: 104px;
+      height: 128px;
+      margin-left: -42px;
+      margin-top: -52px;
+      background: url('../img/pause.png') no-repeat;
+      opacity: .6;
+    }
+
+    .left-btn{
+      @extend %center;
+      width: 80px;
+      height: 100px;
+      margin-left: -250px;
+      margin-top: -42px;
+      background: url('../img/shift-left.png') no-repeat;
+      opacity: .6;
+    }
+
+    .right-btn{
+      @extend %center;
+      width: 80px;
+      height: 100px;
+      margin-left: 150px;
+      margin-top: -42px;
+      background: url('../img/shift-right.png') no-repeat;
+      opacity: .6;
+    }
+
     &.hidden {
       opacity: 0;
       cursor: none;
     }
 
-    .progress-bar {
-      position: absolute;
-      height: 70px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #00ADA7;
-      opacity: .6;
-    }
-    .formated-time {
-      position: absolute;
-      right:80px;
-      bottom: 5px;
-      font-size: 50px;
-      font-weight: 100;
-      color: #29D9C2;
-      opacity: .5;
+    .progress-bar-container {
+        position: absolute;
+        height: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+      .progress-bar {
+        height: 100%;
+        background: #00ADA7;
+        opacity: .6;
+      }
+
+      .formated-time {
+        position: absolute;
+        right:80px;
+        bottom: 5px;
+        font-size: 50px;
+        font-weight: 100;
+        color: #29D9C2;
+        opacity: .5;
+      }
     }
   }
 }

@@ -16,19 +16,20 @@ export default Ember.Component.extend({
   layout: layout,
   classNames:[ 'youtube-video' ],
 
-  seekTo: 100,
-  isPlaying: true,
-  volume: 0,
-
   seekToChange: function(){
     var seekTo = this.get('seekTo');
     this.player.seekTo(seekTo);
   }.observes('seekTo'),
 
-  volumeChange: function(){
-    var volume = this.get('volume');
-    this.player.setVolume(volume);
-  }.observes('volume'),
+  onMuteToggle: function(){
+    var isMuted = this.get('isMuted');
+    console.log('onMuteToggle',isMuted);
+    if(isMuted){
+      this.player.mute();
+    } else {
+      this.player.unMute();
+    }
+  }.observes('isMuted'),
 
   playChange: function(){
     var isPlaying = this.get('isPlaying');
@@ -82,7 +83,7 @@ export default Ember.Component.extend({
   },
 
   onPlayerReady: function(e) {
-    this.volumeChange();
+    this.onMuteToggle();
     var player = e.target;
     this.sendAction('ready', {
       duration: player.getDuration(),

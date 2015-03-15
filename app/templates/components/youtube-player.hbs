@@ -1,14 +1,21 @@
 {{youtube-video
   videoId=videoId
   isPlaying=isVideoPlaying
-  volume=videoVolume
+  isMuted=isVideoMuted
   seekTo=videoSeekTo
   stateChange='videoStateChange'
 }}
 
 <div {{bind-attr class=':control-overlay isControlsVisible::hidden'}}>
-  <div class="progress-bar" {{bind-attr style=progressWidth}}></div>
-  <div class="formated-time">
-    {{formatedTime}}
+  <div {{bind-attr class=":mute-btn isVideoMuted:muted"}} {{action 'toggleMute'}}></div>
+  <div class="left-btn" {{action 'leftShift'}}></div>
+  <div {{bind-attr class="isVideoPlaying:pause-btn:play-btn"}} {{action 'togglePlay'}}></div>
+  <div class="right-btn" {{action 'rightShift'}}></div>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar" {{bind-attr style=progressWidth}}></div>
+    <div class="formated-time">
+      {{formatedTime}}
+    </div>
   </div>
 </div>

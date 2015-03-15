@@ -4,6 +4,7 @@ import {YTPlayerState as pState} from '../components/youtube-video';
 //YTPlayerState: UNSTARTED ENDED PLAYING PAUSED BUFFERING CUED
 
 function formatTime(sec_num){
+  sec_num = Math.round(sec_num);
   var hours   = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
   var seconds = sec_num - (hours * 3600) - (minutes * 60);
@@ -19,6 +20,14 @@ export default Ember.Component.extend({
   layout: layout,
   classNames: ['youtube-player'],
   actions: {
+    togglePlay: function(){
+      this.toggleProperty('isVideoPlaying');
+    },
+
+    toggleMute: function(){
+      this.toggleProperty('isVideoMuted');
+    },
+
     videoStateChange: function(e){
       if (e.state === pState.PLAYING) {
         this.set('videoCurrentTime', e.currentTime);
@@ -38,24 +47,32 @@ export default Ember.Component.extend({
 
   isControlsVisible: false,
   isVideoPlaying: true,
-  videoVolume: 0,
+  isVideoMuted: true,
   videoSeekTo: 0,
 
   mouseMove: function(e){
-    this.set('isControlsVisible',true);
-    clearTimeout(this.controlsTimer);
-    this.controlsTimer = setTimeout(this.set.bind(this,'isControlsVisible',false), 1500)
+    this.resetConrolsTimer();
     this._super(e);
   },
 
+  resetConrolsTimer: function(){
+    this.set('isControlsVisible',true);
+    clearTimeout(this.controlsTimer);
+    this.controlsTimer = setTimeout(this.set.bind(this,'isControlsVisible',false), 1500);
+  },
+
   click: function(e){
-    var width = this.$('.control-overlay').width();
-    var duration = this.get('videoDuration');
-    var time = ( e.pageX / width ) * duration;
-    // time += Math.floor(Math.random() * 100000) / 10000000000; //
-    this.stopTimer();
-    this.set('videoSeekTo', time);
-    this.set('videoCurrentTime', time);
+    this.resetConrolsTimer();
+    var $pContainer = this.$('.progress-bar-container');
+    if ($(e.target).closest($pContainer,this.$()).length) {
+      var width = $pContainer.width();
+      var duration = this.get('videoDuration');
+      var time = ( e.pageX / width ) * duration;
+      // time += Math.floor(Math.random() * 100000) / 10000000000; //
+      this.stopTimer();
+      this.set('videoSeekTo', time);
+      this.set('videoCurrentTime', time);
+    }
     this._super(e);
   },
 
@@ -73,8 +90,8 @@ export default Ember.Component.extend({
   },
 
   formatedTime: function(){
-    var time = Math.round(this.get('videoCurrentTime'));
-    var duration = Math.round(this.get('videoDuration'));
+    var time = this.get('videoCurrentTime');
+    var duration = this.get('videoDuration');
     return formatTime(time) +  ' / ' + formatTime(duration);
   }.property('videoCurrentTime','videoDuration'),
 
