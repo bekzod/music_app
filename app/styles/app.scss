@@ -22,7 +22,6 @@ body {
     width: 240px;
     height: 90px;
     overflow: hidden;
-    transition: background 500ms ease;
 
     &:hover, &.active {
       background: #29D9C2;
@@ -56,7 +55,7 @@ body {
       height: 90px;
       float: left;
       opacity: 1;
-      transition: opacity 1s ease;
+      transition: opacity 800ms ease;
       &.hidden {
         opacity: 0;
       }
@@ -128,7 +127,7 @@ body {
       @extend %center;
       width: 104px;
       height: 128px;
-      margin-left: -30px;
+      margin-left: -35px;
       margin-top: -52px;
       background: url('../img/pause.png') no-repeat;
       opacity: .6;
@@ -181,7 +180,7 @@ body {
         font-size: 50px;
         font-weight: 100;
         color: #29D9C2;
-        opacity: .5;
+        opacity: .7;
       }
     }
   }

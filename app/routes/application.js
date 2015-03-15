@@ -5,5 +5,4 @@ export default Ember.Route.extend({
   model: function(){
     return this.get('musicApi').getTopTracks();
   }
-
 });

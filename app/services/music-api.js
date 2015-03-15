@@ -18,7 +18,8 @@ export default Ember.Service.extend({
           name: track.name,
           artist: track.artist.name,
           image: image && image['#text'],
-          duration: track.duration
+          duration: track.duration,
+          fullName: track.name + ' ' + track.artist.name
         }
       });
     });

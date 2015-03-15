@@ -1,15 +1,13 @@
 <div class='track-list'>
   {{#each track in model}}
-    <div class='track-item'  {{action 'playTrack' track}}>
+    {{#link-to 'video' (query-params q=track.fullName) class='track-item'}}
       {{image-loader class='track-img' src=track.image}}
       <div class="track-detail-container">
         <div class='track-title'> {{track.name}}</div>
         <div class='track-sub-title'> {{track.artist}}</div>
       </div>
-    </div>
+    {{/link-to}}
   {{/each}}
 </div>
-
-{{youtube-player videoId=videoId}}
 
 {{outlet}}
