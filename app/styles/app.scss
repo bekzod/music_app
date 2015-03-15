@@ -1,3 +1,5 @@
+$maincolor: #29D9C2;
+
 body {
   font-family: 'Roboto', sans-serif;
   background: #31353D;
@@ -5,7 +7,7 @@ body {
 
 #nprogress {
   .bar {
-    background: #29D9C2;
+    background: $maincolor;
     height: 3px;
   }
   .spinner {
@@ -46,7 +48,7 @@ body {
     overflow: hidden;
 
     &:hover, &.active {
-      background: #29D9C2;
+      background: $maincolor;
       .track-img {
         opacity: .5;
       }
@@ -122,6 +124,16 @@ body {
     transition: opacity 600ms ease-out;
     opacity: 1;
 
+    .video-title {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: $maincolor;
+      font-size: 25px;
+      font-weight: 200;
+      opacity: .6;
+    }
+
     .mute-btn {
       &.muted {
         background: url('../img/no-sound.png') no-repeat;
@@ -132,7 +144,7 @@ body {
       width: 80px;
       height: 80px;
       background: url('../img/sound.png') no-repeat;
-      opacity: .6;
+      opacity: .65;
     }
 
     .play-btn{
@@ -142,7 +154,7 @@ body {
       margin-left: -52px;
       margin-top: -64px;
       background: url('../img/play.png') no-repeat;
-      opacity: .6;
+      opacity: .65;
     }
 
     .pause-btn{
@@ -152,7 +164,7 @@ body {
       margin-left: -35px;
       margin-top: -52px;
       background: url('../img/pause.png') no-repeat;
-      opacity: .6;
+      opacity: .65;
     }
 
     .left-btn{
@@ -162,7 +174,7 @@ body {
       margin-left: -230px;
       margin-top: -42px;
       background: url('../img/shift-left.png') no-repeat;
-      opacity: .6;
+      opacity: .65;
     }
 
     .right-btn{
@@ -172,7 +184,7 @@ body {
       margin-left: 150px;
       margin-top: -42px;
       background: url('../img/shift-right.png') no-repeat;
-      opacity: .6;
+      opacity: .65;
     }
 
     &.hidden {
@@ -189,8 +201,8 @@ body {
 
       .progress-bar {
         height: 100%;
-        background: #00ADA7;
-        opacity: .6;
+        background: $maincolor;
+        opacity: .5;
       }
 
       .formated-time {
@@ -198,10 +210,10 @@ body {
         cursor: default;
         position: absolute;
         right: 90px;
-        bottom: 5px;
+        bottom: 1px;
         font-size: 40px;
         font-weight: 100;
-        color: #29D9C2;
+        color: $maincolor;
         opacity: .7;
       }
     }
