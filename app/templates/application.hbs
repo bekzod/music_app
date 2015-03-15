@@ -4,7 +4,7 @@
 
   <div class="btn-container">
     {{#each country in chartCountries}}
-      {{#link-to 'application' (query-params country=country) class='btn'}}
+      {{#link-to (query-params country=country) class='btn'}}
         {{country}}
       {{/link-to}}
     {{/each}}

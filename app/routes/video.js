@@ -7,10 +7,22 @@ export default Ember.Route.extend({
   },
 
   model: function(param){
+    var musicApi = this.get('musicApi');
     var track = this.modelFor('application').findBy('id', param.id);
-    if(!track) return this.transitionTo('application');
-    return this.get('musicApi')
-      .getVideo(track.fullName)
+    var isMbid = (param.id.length == 36);
+    var fullName;
+    if( track ){
+      fullName = track.fullName;
+    } else if( isMbid ){
+      fullName = musicApi
+        .getTrackInfo(param.id)
+        .then(function(res){ return res.fullName });
+    } else {
+      fullName = param.id;
+    }
+
+    return musicApi
+      .getVideoP(fullName)
       .then(function(res){
         res.paramId = param.id;
         return res;
