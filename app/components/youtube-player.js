@@ -28,12 +28,12 @@ export default Ember.Component.extend({
       this.toggleProperty('isVideoMuted');
     },
 
-    previousVideo: function(){
-
+    toPreviousVideo: function(){
+      this.sendAction('toPreviousVideo');
     },
 
-    nextVideo: function(){
-
+    toNextVideo: function(){
+      this.sendAction('toNextVideo');
     },
 
     videoStateChange: function(e){

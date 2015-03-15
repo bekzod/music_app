@@ -1,6 +1,6 @@
 <div class='track-list'>
   {{#each track in model}}
-    {{#link-to 'video' (query-params q=track.fullName) class='track-item'}}
+    {{#link-to 'video' track.id class='track-item'}}
       {{image-loader class='track-img' src=track.image}}
       <div class="track-detail-container">
         <div class='track-title'> {{track.name}}</div>

@@ -15,6 +15,7 @@ export default Ember.Service.extend({
       return res.tracks.track.map(function(track){
         var image = track.image && (track.image[2] || track.image[1]);
         return {
+          id: track.mbid || (track.name+track.artist.name).toLowerCase(), // some track don't have id so making own
           name: track.name,
           artist: track.artist.name,
           image: image && image['#text'],

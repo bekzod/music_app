@@ -2,12 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   musicApi: Ember.inject.service(),
+  needs: ['application'],
+
   queryParams: {
-    'q': { refreshModel: true },
     'muted': { refreshModel: false }
   },
+
   model: function(param){
-    return this.get('musicApi').getVideo(param.q);
+    var track = this.modelFor('application').findBy('id', param.id);
+    return this.get('musicApi')
+      .getVideo(track.fullName)
+      .then(function(res){
+        res.paramId = param.id;
+        return res;
+      });
   }
 
 });
