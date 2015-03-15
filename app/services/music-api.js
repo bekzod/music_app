@@ -13,7 +13,7 @@ export default Ember.Service.extend({
       }
     }).then(function(res){
       return res.tracks.track.map(function(track){
-        var image = track.image && track.image[2];
+        var image = track.image && (track.image[2] || track.image[1]);
         return {
           name: track.name,
           artist: track.artist.name,

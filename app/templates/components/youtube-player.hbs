@@ -8,9 +8,9 @@
 
 <div {{bind-attr class=':control-overlay isControlsVisible::hidden'}}>
   <div {{bind-attr class=":mute-btn isVideoMuted:muted"}} {{action 'toggleMute'}}></div>
-  <div class="left-btn" {{action 'leftShift'}}></div>
+  <div class="left-btn" {{action 'previousVideo'}}></div>
   <div {{bind-attr class="isVideoPlaying:pause-btn:play-btn"}} {{action 'togglePlay'}}></div>
-  <div class="right-btn" {{action 'rightShift'}}></div>
+  <div class="right-btn" {{action 'nextVideo'}}></div>
 
   <div class="progress-bar-container">
     <div class="progress-bar" {{bind-attr style=progressWidth}}></div>

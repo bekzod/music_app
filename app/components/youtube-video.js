@@ -23,7 +23,6 @@ export default Ember.Component.extend({
 
   onMuteToggle: function(){
     var isMuted = this.get('isMuted');
-    console.log('onMuteToggle',isMuted);
     if(isMuted){
       this.player.mute();
     } else {
@@ -42,7 +41,8 @@ export default Ember.Component.extend({
 
   onVideoIdChange: function(){
     var videoId = this.get('videoId');
-    this.player.loadVideoById(videoId);
+    this.player.cueVideoById(videoId);
+    this.playChange();
   }.observes('videoId'),
 
   initPlayer: function(){
@@ -83,8 +83,9 @@ export default Ember.Component.extend({
   },
 
   onPlayerReady: function(e) {
-    this.onMuteToggle();
     var player = e.target;
+    player.setPlaybackQuality('hd720');
+    this.onMuteToggle();
     this.sendAction('ready', {
       duration: player.getDuration(),
       currentTime: player.getCurrentTime(),

@@ -28,16 +28,28 @@ export default Ember.Component.extend({
       this.toggleProperty('isVideoMuted');
     },
 
+    previousVideo: function(){
+
+    },
+
+    nextVideo: function(){
+
+    },
+
     videoStateChange: function(e){
       if (e.state === pState.PLAYING) {
         this.set('videoCurrentTime', e.currentTime);
         this.set('videoDuration', e.duration);
         this.startTimer();
-      } else if(e.state === pState.PAUSED ||
-          e.state === pState.BUFFERING ||
-          e.state === pState.ENDED
-        ){
+      } else if(e.state === pState.PAUSED){
         this.stopTimer();
+      } else if(e.state == pState.ENDED){
+        this.stopTimer();
+        this.send('nextVideo');
+      } else if(e.state == pState.BUFFERING){
+        this.stopTimer();
+      } else if(e.state == pState.CUED){
+
       }
     }
   },
