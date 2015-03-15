@@ -6,7 +6,7 @@
   stateChange='videoStateChange'
 }}
 
-<div class="control-overlay">
+<div {{bind-attr class=':control-overlay isControlsVisible::hidden'}}>
   <div class="progress-bar" {{bind-attr style=progressWidth}}></div>
   <div class="formated-time">
     {{formatedTime}}

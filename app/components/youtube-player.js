@@ -36,9 +36,17 @@ export default Ember.Component.extend({
   videoCurrentTime: 0,
   videoDuration: 0,
 
+  isControlsVisible: false,
   isVideoPlaying: true,
   videoVolume: 0,
   videoSeekTo: 0,
+
+  mouseMove: function(e){
+    this.set('isControlsVisible',true);
+    clearTimeout(this.controlsTimer);
+    this.controlsTimer = setTimeout(this.set.bind(this,'isControlsVisible',false), 1500)
+    this._super(e);
+  },
 
   click: function(e){
     var width = this.$('.control-overlay').width();

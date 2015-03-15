@@ -10,8 +10,6 @@ export default Ember.Controller.extend({
           this.set('videoId', res.id.videoId);
         }.bind(this));
     }
-  },
-
-
+  }
 });
 

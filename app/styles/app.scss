@@ -35,23 +35,31 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    transition: opacity 600ms ease-out;
+    opacity: 1;
+
+    &.hidden {
+      opacity: 0;
+      cursor: none;
+    }
+
     .progress-bar {
       position: absolute;
-      top: 0;
+      height: 70px;
       left: 0;
       right: 0;
       bottom: 0;
-      height: 100%;
-      background: #24221F;
+      background: #00ADA7;
       opacity: .6;
     }
     .formated-time {
       position: absolute;
-      right: 50px;
-      bottom: 30px;
+      right:80px;
+      bottom: 5px;
       font-size: 50px;
       font-weight: 100;
-      color: white;
+      color: #29D9C2;
+      opacity: .5;
     }
   }
 }
