@@ -21,7 +21,7 @@ export default Ember.Route.extend({
   },
 
   model: function(){
-    return this.get('musicApi').getTopTracks();
+    return this.get('musicApi').getTopTracksByCountry('united states');
   }
 
 });

@@ -10,5 +10,7 @@ export default Ember.Controller.extend({
    toPreviousVideo: function(){
      return true;
    },
-  }
+  },
+  videoId: Ember.computed.alias('model.id.videoId'),
+  videoTitle: Ember.computed.alias('model.snippet.title')
 });

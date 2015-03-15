@@ -7,6 +7,7 @@
 }}
 
 <div {{bind-attr class=':control-overlay isControlsVisible::hidden'}}>
+  <div class="video-title">{{videoTitle}}</div>
   <div {{bind-attr class=":mute-btn isVideoMuted:muted"}} {{action 'toggleMute'}}></div>
   <div class="left-btn" {{action 'toPreviousVideo'}}></div>
   <div {{bind-attr class="isVideoPlaying:pause-btn:play-btn"}} {{action 'togglePlay'}}></div>

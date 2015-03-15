@@ -10,6 +10,7 @@ export default Ember.Route.extend({
 
   model: function(param){
     var track = this.modelFor('application').findBy('id', param.id);
+    if(!track) return this.transitionTo('application');
     return this.get('musicApi')
       .getVideo(track.fullName)
       .then(function(res){
