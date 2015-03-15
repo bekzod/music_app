@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: #24221F;
+  background: #31353D;
 }
 
 %center{
@@ -12,28 +12,42 @@ body {
 
 .track-list {
   overflow: auto;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 10px 10px;
 
   .track-item {
-    background: grey;
-    margin: 5px 0 0 5px;
+    background: #1C1D21;
+    margin: 8px 0 0 10px;
     float: left;
     cursor: pointer;
     width: 240px;
     height: 90px;
+    overflow: hidden;
+    transition: background 500ms ease;
 
-    .track-detail-container{
+    &:hover, &.active {
+      background: #29D9C2;
+      .track-img {
+        opacity: .5;
+      }
+    }
+
+    .track-detail-container {
       float: left;
       overflow: auto;
       width: 150px;
-      padding: 5px 10px;
+      padding: 10px 0 0 9px;
       box-sizing: border-box;
-      line-height: 17px;
+      color: #FBFBFC;
       .track-title {
-        font-size: 20px;
+        line-height: 18px;
+        font-size: 16px;
+        font-weight: 300;
       }
       .track-sub-title{
-        font-size: 16px;
+        padding-top: 4px;
+        font-size: 13px;
+        font-weight: 200;
+        letter-spacing: 1px;
       }
     }
 
