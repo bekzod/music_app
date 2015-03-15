@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryParams:['country'],
+  country: 'spain',
 
   toNextVideo: function(currentVideoId){
     var tracks = this.get('model');

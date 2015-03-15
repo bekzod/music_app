@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   musicApi: Ember.inject.service(),
+  queryParams: {
+    'country': { refreshModel: true }
+  },
 
   actions: {
     loading: function(){
@@ -20,8 +23,8 @@ export default Ember.Route.extend({
     }
   },
 
-  model: function(){
-    return this.get('musicApi').getTopTracksByCountry('united states');
+  model: function(params){
+    return this.get('musicApi').getTopTracksByCountry(params.country);
   }
 
 });

@@ -2,8 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   musicApi: Ember.inject.service(),
-  needs: ['application'],
-
   queryParams: {
     'muted': { refreshModel: false }
   },
