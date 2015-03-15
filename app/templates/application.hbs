@@ -1,13 +1,17 @@
-<div class='track-list'>
-  {{#each track in model}}
-    {{#link-to 'video' track.id class='track-item'}}
-      {{image-loader class='track-img' src=track.image}}
-      <div class="track-detail-container">
-        <div class='track-title'> {{track.name}}</div>
-        <div class='track-sub-title'> {{track.artist}}</div>
-      </div>
-    {{/link-to}}
-  {{/each}}
-</div>
+<div class="container">
 
-{{outlet}}
+  {{outlet}}
+
+  <div class='track-list'>
+    {{#each track in model}}
+      {{#link-to 'video' track.id class='track-item'}}
+        {{image-loader class='track-img' src=track.image}}
+        <div class="track-detail-container">
+          <div class='track-title'> {{track.name}}</div>
+          <div class='track-sub-title'> {{track.artist}}</div>
+        </div>
+      {{/link-to}}
+    {{/each}}
+  </div>
+
+</div>

@@ -3,12 +3,23 @@ body {
   background: #31353D;
 }
 
-%center{
+%center {
   position: absolute;
   left: 50%;
   top: 50%;
 }
 
+.title {
+  font-size: 20px;
+}
+
+.container {
+
+}
+
+.video-page {
+  margin: 0 0 40px 0;
+}
 
 .track-list {
   overflow: auto;
