@@ -29,10 +29,12 @@ export default Ember.Component.extend({
     },
 
     toPreviousVideo: function(){
+      this.stopTimer();
       this.sendAction('toPreviousVideo');
     },
 
     toNextVideo: function(){
+      this.stopTimer();
       this.sendAction('toNextVideo');
     },
 
@@ -45,7 +47,7 @@ export default Ember.Component.extend({
         this.stopTimer();
       } else if(e.state == pState.ENDED){
         this.stopTimer();
-        this.send('nextVideo');
+        this.send('toNextVideo');
       } else if(e.state == pState.BUFFERING){
         this.stopTimer();
       } else if(e.state == pState.CUED){
@@ -80,7 +82,6 @@ export default Ember.Component.extend({
       var width = $pContainer.width();
       var duration = this.get('videoDuration');
       var time = ( e.pageX / width ) * duration;
-      // time += Math.floor(Math.random() * 100000) / 10000000000; //
       this.stopTimer();
       this.set('videoSeekTo', time);
       this.set('videoCurrentTime', time);

@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-
+  margin-bottom: 100px;
 }
 
 .video-page {
@@ -81,7 +81,7 @@ body {
   position: relative;
   max-width: 1400px;
   min-width: 600px;
-  padding-bottom:50%;
+  padding-bottom:51%;
   height: 0;
   overflow: hidden;
   pointer-events: none;
@@ -171,7 +171,7 @@ body {
 
     .progress-bar-container {
         position: absolute;
-        height: 70px;
+        height: 50px;
         left: 0;
         right: 0;
         bottom: 0;
@@ -186,9 +186,9 @@ body {
         user-select: none;
         cursor: default;
         position: absolute;
-        right:80px;
+        right: 90px;
         bottom: 5px;
-        font-size: 50px;
+        font-size: 40px;
         font-weight: 100;
         color: #29D9C2;
         opacity: .7;
