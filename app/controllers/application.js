@@ -4,7 +4,15 @@ export default Ember.Controller.extend({
   queryParams:['country'],
   country: 'spain',
 
-  chartCountries: ['spain','united states','united kingdom','russia'],
+  chartCountries: [
+    'spain',
+    'united states',
+    'united kingdom',
+    'russia',
+    'germany',
+    'sweden',
+    'japan'
+  ],
 
   toNextVideo: function(currentVideoId){
     var tracks = this.get('model');

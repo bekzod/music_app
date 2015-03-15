@@ -3,6 +3,7 @@ $maincolor: #29D9C2;
 body {
   font-family: 'Roboto', sans-serif;
   background: #31353D;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 #nprogress {
@@ -31,13 +32,15 @@ body {
 }
 
 .btn-container{
-  width: 500px;
-  margin: 40px auto;
+  width: 745px;
+  margin: 20px auto;
 }
+
 
 a.btn {
   text-decoration: none;
-  padding: 20px;
+  padding: 14px 20px;
+  margin-right: 1px;
   background: #455877;
   color: #FBFBFC;
   display: inline-block;
@@ -51,7 +54,7 @@ a.btn {
 
 .track-list {
   overflow: auto;
-  margin: 10px 0 10px 10px;
+  margin: 0 0 10px 10px;
 
   .track-item {
     background: #1C1D21;
