@@ -3,6 +3,17 @@ body {
   background: #31353D;
 }
 
+#nprogress {
+  .bar {
+    background: #29D9C2;
+    height: 3px;
+  }
+  .spinner {
+    display: none;
+  }
+}
+
+
 %center {
   position: absolute;
   left: 50%;
