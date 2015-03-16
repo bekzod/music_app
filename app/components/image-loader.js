@@ -20,7 +20,7 @@ export default Ember.Component.extend({
     }
   }.on('didInsertElement'),
 
-  dearDown: function(){
+  tearDown: function(){
     this.$()[0].onload = null;
   }.on('willDestroyElement')
 
