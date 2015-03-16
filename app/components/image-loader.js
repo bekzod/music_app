@@ -13,15 +13,15 @@ export default Ember.Component.extend({
 
   attachEvents: function(){
     var $el = this.$();
-    if(this.get('src')){
-      $el.one('load', this.onLoad.bind(this));
+    if (this.get('src')) {
+      $el[0].onload = Ember.run.bind(this,this.onLoad);
     } else {
       $el.hide();
     }
   }.on('didInsertElement'),
 
   dearDown: function(){
-    this.$().off('load');
-  }.on('willDestroyElement'),
+    this.$()[0].onload = null;
+  }.on('willDestroyElement')
 
 });
