@@ -21,12 +21,26 @@ export default Ember.Route.extend({
       fullName = param.id;
     }
 
-    return musicApi
-      .getVideoP(fullName)
-      .then(function(res){
-        res.paramId = param.id;
-        return res;
-      });
+    return Ember.RSVP.all([
+      musicApi.getVideoP(fullName),
+      this.checkYouTubeApiLoaded(),
+      param.id
+    ])
+    .then(function(res){
+      var musicData = res[0];
+      musicData.paramId = res[2];
+      return musicData;
+    });
+  },
+
+  checkYouTubeApiLoaded: function (){
+    return new Ember.RSVP.Promise(function(resolve, reject){
+      if (window.YT){
+        resolve();
+      } else {
+        window.onYouTubeIframeAPIReady = resolve;
+      }
+    })
   }
 
 });
