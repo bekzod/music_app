@@ -34,13 +34,14 @@ export default Ember.Route.extend({
   },
 
   checkYouTubeApiLoaded: function (){
-    return new Ember.RSVP.Promise(function(resolve, reject){
+    return new Ember.RSVP.Promise(function(resolve,reject){
       if (window.YT){
         resolve();
       } else {
         window.onYouTubeIframeAPIReady = resolve;
       }
-    })
+      setTimeout(reject.bind(this, new Error('Timed out')), 7000);
+    });
   }
 
 });
