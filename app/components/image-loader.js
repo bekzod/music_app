@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   hidden:true,
 
-  onLoad: function(e){
+  onLoad: function(){
     this.set('hidden', false);
   },
 

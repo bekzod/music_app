@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
+/*globals $*/
+
 export default Ember.Service.extend({
 
   getTrackInfo: function (mbid) {
@@ -30,8 +32,8 @@ export default Ember.Service.extend({
           image: image && image['#text'],
           duration: track.duration,
           fullName: track.name + ' ' + track.artist.name
-      }
-    })
+      };
+    });
   },
 
   getTopTracksByCountry: function (country,location) {
@@ -62,7 +64,7 @@ export default Ember.Service.extend({
           image: image && image['#text'],
           duration: track.duration,
           fullName: track.name + ' ' + track.artist.name
-        }
+        };
       });
     });
   },
@@ -71,7 +73,7 @@ export default Ember.Service.extend({
     if($.isFunction(q.promise)){
       return q.then(this.getVideo.bind(this));
     } else {
-      return this.getVideo(q)
+      return this.getVideo(q);
     }
   },
 

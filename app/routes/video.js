@@ -9,14 +9,14 @@ export default Ember.Route.extend({
   model: function(param){
     var musicApi = this.get('musicApi');
     var track = this.modelFor('application').findBy('id', param.id);
-    var isMbid = (param.id.length == 36);
+    var isMbid = (param.id.length === 36);
     var fullName;
     if( track ){
       fullName = track.fullName;
     } else if( isMbid ){
       fullName = musicApi
         .getTrackInfo(param.id)
-        .then(function(res){ return res.fullName });
+        .then(function(res){ return res.fullName; });
     } else {
       fullName = param.id;
     }

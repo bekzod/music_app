@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+/*globals NProgress*/
+
 export default Ember.Route.extend({
   musicApi: Ember.inject.service(),
   queryParams: {

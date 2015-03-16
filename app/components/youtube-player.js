@@ -3,6 +3,8 @@ import layout from '../templates/components/youtube-player';
 import {YTPlayerState as pState} from '../components/youtube-video';
 //YTPlayerState: UNSTARTED ENDED PLAYING PAUSED BUFFERING CUED
 
+/*globals $*/
+
 function formatTime(sec_num){
   sec_num = Math.round(sec_num);
   var hours   = Math.floor(sec_num / 3600);
@@ -45,12 +47,12 @@ export default Ember.Component.extend({
         this.startTimer();
       } else if(e.state === pState.PAUSED){
         this.stopTimer();
-      } else if(e.state == pState.ENDED){
+      } else if(e.state === pState.ENDED){
         this.stopTimer();
         this.send('toNextVideo');
-      } else if(e.state == pState.BUFFERING){
+      } else if(e.state === pState.BUFFERING){
         this.stopTimer();
-      } else if(e.state == pState.CUED){
+      } else if(e.state === pState.CUED){
 
       }
     }
@@ -99,7 +101,7 @@ export default Ember.Component.extend({
   }.on('willDestroyElement'),
 
   tick: function(){
-    this.incrementProperty('videoCurrentTime', .1);
+    this.incrementProperty('videoCurrentTime', 0.1);
   },
 
   formatedTime: function(){
