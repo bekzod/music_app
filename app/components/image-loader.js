@@ -20,4 +20,8 @@ export default Ember.Component.extend({
     }
   }.on('didInsertElement'),
 
+  dearDown: function(){
+    this.$().off('load');
+  }.on('willDestroyElement'),
+
 });
