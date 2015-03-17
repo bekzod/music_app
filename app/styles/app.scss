@@ -1,3 +1,5 @@
+@import 'breakpoint';
+
 $maincolor: #29D9C2;
 
 body {
@@ -29,18 +31,23 @@ body {
 
 .container {
   margin-bottom: 100px;
+  max-width: 1300px;
 }
 
 .btn-container{
   width: 745px;
   margin: 20px auto;
+  @include breakpoint(max-width 770px){
+    width: 96% !important;
+    margin: 20px 2% !important;
+  }
 }
 
 
 a.btn {
   text-decoration: none;
   padding: 14px 20px;
-  margin-right: 1px;
+  margin: 0 1px 1px 0;
   background: #455877;
   color: #FBFBFC;
   display: inline-block;
@@ -54,7 +61,27 @@ a.btn {
 
 .track-list {
   overflow: auto;
-  margin: 0 0 10px 10px;
+  margin: 0 10px 0 10px;
+  width: 1000px;
+  margin: 0 auto;
+  transition: margin,width 500ms auto;
+  @include breakpoint(max-width 1000px){
+    width: 760px;
+  }
+
+  @include breakpoint(max-width 760px){
+    width: 510px;
+  }
+
+  @include breakpoint(max-width 510px){
+    width: 96%;
+    margin: 0 2%;
+    .track-item {
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
 
   .track-item {
     background: #1C1D21;
@@ -64,6 +91,7 @@ a.btn {
     width: 240px;
     height: 90px;
     overflow: hidden;
+    transition: margin,width 500ms auto;
 
     &:hover, &.active {
       background: $maincolor;
@@ -75,7 +103,6 @@ a.btn {
     .track-detail-container {
       float: left;
       overflow: auto;
-      width: 150px;
       padding: 10px 0 0 9px;
       box-sizing: border-box;
       color: #FBFBFC;
@@ -111,7 +138,6 @@ a.btn {
 .youtube-video {
   position: relative;
   max-width: 1400px;
-  min-width: 600px;
   padding-bottom:51%;
   height: 0;
   overflow: hidden;

@@ -12,6 +12,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "normalize.css": "~3.0.2",
-    "nprogress": "~0.1.6"
+    "nprogress": "~0.1.6",
+    "breakpoint-sass": "~2.5.0"
   }
 }
