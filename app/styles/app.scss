@@ -37,9 +37,9 @@ body {
 .btn-container{
   width: 745px;
   margin: 20px auto;
-  @include breakpoint(max-width 770px){
-    width: 96% !important;
-    margin: 20px 2% !important;
+  @include breakpoint(max-width 1000px){
+    width: 92% !important;
+    margin: 20px 4% !important;
   }
 }
 
@@ -183,8 +183,8 @@ a.btn {
         background: url('../img/no-sound.png') no-repeat;
       }
       position: absolute;
-      top: 50px;
-      right: 50px;
+      top: 20px;
+      right: 20px;
       width: 80px;
       height: 80px;
       background: url('../img/sound.png') no-repeat;
@@ -213,9 +213,9 @@ a.btn {
 
     .left-btn{
       @extend %center;
-      width: 80px;
+      width: 60px;
       height: 100px;
-      margin-left: -230px;
+      margin-left: -240px;
       margin-top: -42px;
       background: url('../img/shift-left.png') no-repeat;
       opacity: .65;
@@ -223,9 +223,9 @@ a.btn {
 
     .right-btn{
       @extend %center;
-      width: 80px;
+      width: 60px;
       height: 100px;
-      margin-left: 150px;
+      margin-left: 140px;
       margin-top: -42px;
       background: url('../img/shift-right.png') no-repeat;
       opacity: .65;
