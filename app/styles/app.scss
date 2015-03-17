@@ -77,6 +77,9 @@ a.btn {
     width: 96%;
     margin: 0 2%;
     .track-item {
+      .track-detail-container{
+        max-width: none !important;
+      }
       width: 100% !important;
       margin-left: 0 !important;
       margin-right: 0 !important;
@@ -106,6 +109,7 @@ a.btn {
       padding: 10px 0 0 9px;
       box-sizing: border-box;
       color: #FBFBFC;
+      max-width: 150px;
       .track-title {
         line-height: 18px;
         font-size: 16px;
@@ -195,7 +199,7 @@ a.btn {
       @extend %center;
       width: 104px;
       height: 128px;
-      margin-left: -52px;
+      margin-left: -40px;
       margin-top: -64px;
       background: url('../img/play.png') no-repeat;
       opacity: .65;
@@ -215,7 +219,7 @@ a.btn {
       @extend %center;
       width: 60px;
       height: 100px;
-      margin-left: -240px;
+      margin-left: -190px;
       margin-top: -42px;
       background: url('../img/shift-left.png') no-repeat;
       opacity: .65;
