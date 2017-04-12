@@ -1,27 +1,29 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName:'img',
+  tagName: 'img',
   attributeBindings: ['src'],
   classNameBindings: ['hidden'],
 
-  hidden:true,
+  hidden: true,
 
-  onLoad: function(){
+  onLoad(){
     this.set('hidden', false);
   },
 
-  attachEvents: function(){
+  didInsertElement() {
+    this._super(...arguments);
     var $el = this.$();
     if (this.get('src')) {
       $el[0].onload = Ember.run.bind(this,this.onLoad);
     } else {
       $el.hide();
     }
-  }.on('didInsertElement'),
+  },
 
-  tearDown: function(){
+  willDestroyElement() {
     this.$()[0].onload = null;
-  }.on('willDestroyElement')
+    this._super(...arguments);
+  }
 
 });
