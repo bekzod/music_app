@@ -1,6 +1,6 @@
 # Music-app
 
-[Link](http://music-app.divshot.io)
+[Link](http://music-app.surge.sh)
 
 ## Prerequisites
 
