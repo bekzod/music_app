@@ -1,6 +1,6 @@
 # Music-app
 
-[Link](http://music-app.surge.sh)
+[DEMO](http://music-app.surge.sh)
 
 ## Prerequisites
 
