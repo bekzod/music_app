@@ -1,5 +1,7 @@
 # Music-app
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bekzod/music_app.svg)](https://greenkeeper.io/)
+
 [DEMO](http://music-app.surge.sh)
 
 ## Prerequisites
